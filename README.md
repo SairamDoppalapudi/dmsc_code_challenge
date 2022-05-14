@@ -2,7 +2,7 @@ DMSC Code Challenge
 ===================
 
 This repo contains a simplified version of a real-world project from a SPE DMSC
-initiative.  Review the [Sample Story](/tree/master/sample_story.md) for a full
+initiative.  Review the [Sample Story](/sample_story.md) for a full
 description of the requirements.
 
 You don't have to achieve all of the acceptance criteria. While that is the
