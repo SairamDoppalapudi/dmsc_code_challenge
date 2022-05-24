@@ -63,7 +63,7 @@ def describe_validate_metadata():
 
     def it_verifies_audio_config_in_filename_against_metadata(parsed_output):
         assert parsed_output['NETUMA_TV_206_LAS_50_V_DXSM_2398_48K_20220309.zip']\
-                .get('metadata_discrepancy') == 'TRUE'
+                .get('metadata_discrepancy') == 'True'
 
     @pytest.fixture()
     def expected_missing():
@@ -76,6 +76,8 @@ def describe_validate_metadata():
                 'custom_metadata.dcs.dcs_vendor',
             },
             'MORBIU_D_R1-6_LAS_51_TH_PM_24_48_20220309.sitx': {
+                'custom_metadata.content_details.language_dubbed',
+                'custom_metadata.dcs.dcs_vendor',
                 'custom_metadata.format_details.audio_configuration',
                 'custom_metadata.format_details.audio_element'
             }
@@ -84,4 +86,4 @@ def describe_validate_metadata():
     def it_annotates_missing_metadata(parsed_output, expected_missing):
         for name, expected in expected_missing.items():
             actual = set(parsed_output.get(name, {}).get('missing_metadata', '').split(' '))
-            assert actual == expected
+            assert actual == expected, f'expecting {name}, to have {expected}, instead had {actual}'
